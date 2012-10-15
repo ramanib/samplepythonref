@@ -1,0 +1,27 @@
+-> http://docs.python.org/library/stdtypes.html#typesseq-mutable  # mutable sequence methods
+
+-> Configuring PostgreSQL
+Now we need to set up postgreSQL. The first thing to do is to create a django user. The easiest way of doing this is to sudo -H -s to root and issue the following:
+
+sudo -u postgres createuser -P analys
+
+Replace analys with the username you want to use. Note that I’m using analys, not analyse as this is a reserved keyword for postgreSQL. Now we need to create a database for the user to use. In my case I need two databases (one for two similar but slightly different applications) that will use the same user. It may be better to use separate users for separate databases if some segregation of data is required, but I don’t need it for my two apps.
+
+sudo -u postgres psql template1
+CREATE DATABASE analys_desktop OWNER analys ENCODING ‘UTF8’;
+CREATE DATABASE analys_server OWNER analys ENCODING ‘UTF8’;
+
+Once the users and databases are created it’s time to give django access. To do this we’ll need to change the pg_hba.conf file, normally contained within something like /etc/postgresql/8.3/main/pg_hba.conf on Debian-based systems.
+
+
+
+sudo apt-get install libpq-dev python-dev
+
+
+www.techniqal.com/blog/2008/07/31/python-file-read-write-with-urllib2/  # urllib2 to download data in a sequential manner
+
+-> http://www.voidspace.org.uk/python/articles/authentication.shtml  # urllib2 demo
+
+-> http://www.codercaste.com/2009/11/28/how-to-use-the-urllib-python-library-to-fetch-url-data-and-more/   # cookie handling
+
+-> 
